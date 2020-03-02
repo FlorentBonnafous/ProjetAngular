@@ -6,6 +6,7 @@
 package com.example.demo;
 
 import generated.World;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -20,37 +21,19 @@ import javax.xml.bind.Unmarshaller;
  */
 public class Services {
 
-    String readWorldFromXml() throws JAXBException {
+    World readWorldFromXml() throws JAXBException {
 
         
         InputStream input = getClass().getClassLoader().getResourceAsStream("world.xml");
         JAXBContext jaxbContext = JAXBContext.newInstance(World.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         World world = (World) jaxbUnmarshaller.unmarshal(input);
-        
-        
-        
-        world.getLogo();
-        world.getMoney();
-        world.getName();
-        world.getActiveangels();
-        world.getAllunlocks();
-        world.getAngelbonus();
-        world.getLastupdate();
-        world.getAngelupgrades();
-        world.getManagers();
-        world.getProducts();
-        world.getScore();
-        world.getTotalangels();
-        world.getUpgrades();
-        System.out.println(world);
-        return world.getLogo()+world.getName()+world.getMoney()+world.getActiveangels()+world.getAllunlocks()+world.getAngelbonus()+world.getLastupdate()+world.getAngelupgrades()+world.getManagers()+world.getProducts()+world.getScore()+world.getTotalangels()+world.getUpgrades();
-        
+        return world;
     }
 
-    void saveWorldToXml(World world) {
+    void saveWorldToXml(World world) throws FileNotFoundException {
 
-        //OutputStream output = new FileOutputStream(file);
+        OutputStream output = new FileOutputStream("world.xml");
 
     }
 }
