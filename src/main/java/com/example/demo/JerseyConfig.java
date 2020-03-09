@@ -5,6 +5,12 @@
  */
 package com.example.demo;
 
+import javax.ws.rs.ApplicationPath;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.stereotype.Component;
+
+
+
 /**
  *
  * @author ssylvest
@@ -14,5 +20,6 @@ package com.example.demo;
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig(){
         register(Webservice.class);
+        register(CORSResponseFilter.class);
     }
 }
