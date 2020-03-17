@@ -5,20 +5,26 @@
  */
 package com.example.demo;
 
+//import javax.ws.rs.ApplicationPath;
+// org.glassfish.jersey.server.ResourceConfig;
+
+
+
 import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
-
 
 
 /**
  *
  * @author ssylvest
  */
+
 @Component
 @ApplicationPath("/adventureisis")
-public class JerseyConfig extends ResourceConfig {
-    public JerseyConfig(){
+public class JerseyConfig extends ResourceConfig{
+     
+    public JerseyConfig()  {
         register(Webservice.class);
         register(CORSResponseFilter.class);
     }
